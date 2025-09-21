@@ -1,0 +1,21 @@
+<p>view-students works!</p>
+
+<input type="text" (input)="serachValue($event)" placeholder="Enter id or name">
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Password</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Date of Birth</th>
+    </tr>
+    <tr *ngFor="let s of finaldata$ | async ">
+        <td >{{s.id}}</td>
+        <td>{{s.name}}</td>
+        <td>{{s.password}}</td>
+        <td>{{s.mobile}}</td>
+        <td>{{s.email}}</td>
+        <td>{{s.dob}}</td>
+    </tr>
+</table>

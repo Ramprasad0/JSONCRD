@@ -1,0 +1,89 @@
+<p>add-students works!</p>
+
+<form [formGroup]="formG"  (ngSubmit)="addInfo()">
+   <div>
+    <label for="">
+        Name
+    </label>
+    <input type="text" placeholder="User Name" formControlName="name">
+   </div> <div *ngIf="formG.get('name')?.invalid && (formG.get('name')?.touched || formG.get('name')?.dirty)">
+    <small *ngIf="formG.get('name')?.hasError('minlength')" style="color: red;">Length must be minimum 6 characters</small>
+    <small *ngIf="formG.get('name')?.hasError('required')" style="color: red;">name is required</small>
+</div>
+   <br>
+   <div>
+    <label >
+        Password
+    </label>
+    <input type="text" placeholder="Password" formControlName="password">
+   </div>
+   
+<div *ngIf="formG.get('password')?.invalid && (formG.get('password')?.touched || formG.get('password')?.dirty)">
+<small *ngIf="formG.get('password')?.errors?.['required']" style="color:red;">
+  Password is required
+</small>
+<small *ngIf="formG.get('password')?.errors?.['minlength']" style="color:red;">
+  At least {{ formG.get('password')?.errors?.['minlength']?.requiredLength }} characters
+</small>
+<small *ngIf="formG.get('password')?.errors?.['maxlength']" style="color:red;">
+  Max {{ formG.get('password')?.errors?.['maxlength']?.requiredLength }} characters
+</small>
+<small *ngIf="formG.get('password')?.errors?.['pattern']" style="color:red;">
+  Must include uppercase, lowercase, number, and special character
+</small>
+</div>
+
+   <br>
+   <div>
+    <label >
+        Mobile
+    </label>
+    <input type="text" placeholder="Mobile Number" formControlName="mobile">
+   </div>
+   
+<div *ngIf="formG.get('mobile')?.invalid && (formG.get('mobile')?.touched || formG.get('mobile')?.dirty)">
+<small *ngIf="formG.get('mobile')?.errors?.['required']" style="color:red;">
+  Mobile is required
+</small>
+<small *ngIf="formG.get('mobile')?.errors?.['pattern']" style="color:red;">
+  Enter a valid 10-digit number starting with 6–9
+</small>
+</div>
+
+   <br>
+   <div>
+    <label >
+        Email
+    </label>
+    <input type="text" placeholder="Email" formControlName="email">
+   </div>
+   
+<div *ngIf="formG.get('email')?.invalid && (formG.get('email')?.touched || formG.get('email')?.dirty)">
+    <small *ngIf="formG.get('email')?.errors?.['required']" style="color:red;">
+      Email is required
+    </small>
+    <small *ngIf="formG.get('email')?.errors?.['email']" style="color:red;">
+      Enter a valid email
+    </small>
+  </div>
+
+   <br>
+   <div>
+    <label >
+        Date of Birth
+    </label>
+    <input type="text" placeholder="Date of Birth" formControlName="dob">
+    <div *ngIf="formG.get('dob')?.invalid && (formG.get('dob')?.touched || formG.get('dob')?.dirty)">
+        
+        <small *ngIf="formG.get('dob')?.hasError('required')" style="color: red;">dob is required</small>
+
+        
+<small *ngIf="!formG.get('dob')?.hasError('required') && formG.get('dob')?.hasError('retVal')" style="color: red;">
+  Enter YYYY-mm-dd format
+</small>
+
+    </div>
+   </div>
+<br>
+   <input type="submit" [disabled]="formG.invalid">
+</form>

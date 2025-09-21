@@ -1,0 +1,35 @@
+{
+  "student": [
+    {
+      "id": "991d",
+      "name": "cklskejo",
+      "dob": "2004-07-03"
+    },
+    {
+      "id": "d01d",
+      "name": "jksdkj",
+      "dob": "jckskd"
+    },
+    {
+      "id": "8649",
+      "name": "ywdaj",
+      "dob": "2004-01-01"
+    },
+    {
+      "id": "d298",
+      "name": "gdyihak",
+      "dob": "2000-01-01",
+      "password": "dugai@3Y",
+      "mobile": "9876543212",
+      "email": "dyiK2dgah@jhsd"
+    },
+    {
+      "id": "ad50",
+      "name": "sdfghjk",
+      "dob": "2001-01-01",
+      "password": "ASdfgh@1234",
+      "mobile": "9876542123",
+      "email": "diesau@yduhas"
+    }
+  ]
+}
