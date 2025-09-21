@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { map, Observable, of } from 'rxjs';
 import { Student } from 'src/app/model/student';
 import { StudentserviceService } from 'src/app/services/studentservice.service';
@@ -12,9 +13,10 @@ import { StudentserviceService } from 'src/app/services/studentservice.service';
 
 export class ViewStudentsComponent {
 
+
   formG!:FormGroup;
   constructor(
-    private serviceCall:StudentserviceService
+    private serviceCall:StudentserviceService,private route:Router
   ){
   }
 
@@ -28,7 +30,8 @@ export class ViewStudentsComponent {
   getData(){
     this.data$=this.serviceCall.viewStudents();
     this.finaldata$=this.data$.
-    pipe(map((data)=>data.sort((a:Student,b:Student)=>b.name.localeCompare(a.name))));
+    // pipe(map((data)=>data.sort((a:Student,b:Student)=>b.name.localeCompare(a.name))));
+    pipe(map((data)=>data.sort((a:Student,b:Student)=>b.name.localeCompare(a.name))))
   }
   serachValue(e:any){
     //console.log(e.target.value)
@@ -37,14 +40,33 @@ export class ViewStudentsComponent {
       this.finaldata$=this.data$;
       return;
     }else{
-      this.finaldata$=this.data$
-      .pipe(map((data)=>{
+      // this.finaldata$=this.data$
+      // .pipe(map((data)=>{
+      //   return data.filter(
+      //     (student)=>{
+      //      return student.id.toString().includes(valuegiven) || student.name.toString().includes(valuegiven)
+      //     }
+      //   )
+      // }))
+
+      const lower =valuegiven.toString().toLowerCase();
+
+      this.finaldata$=this.data$.
+      pipe(map((data)=>{
         return data.filter(
-          (student)=>{
-           return  student.id.toString().includes(valuegiven)|| student.name.toString().includes(valuegiven)
-          }
-        )
-      }))
+         (student)=>{
+          return student.id.toString().toLowerCase().includes(lower) || student.name.toString().toLowerCase().includes(lower)
+        }
+      )}
+    ))
     }
   }
+
+  deletebyId(id:string) {
+this.serviceCall.deleteById(id).subscribe((data)=>{
+  console.log(data);
+  // this.route.navigate(['/view'])
+  this.getData();
+})
+}
 }

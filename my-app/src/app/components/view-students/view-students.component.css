@@ -7,3 +7,7 @@ table{
 tr th , tr td{
     border: 0.5px groove #123;
 }
+
+a{
+    text-decoration: none;
+}

@@ -1,27 +1,12 @@
 {
   "student": [
     {
-      "id": "991d",
-      "name": "cklskejo",
-      "dob": "2004-07-03"
-    },
-    {
-      "id": "d01d",
-      "name": "jksdkj",
-      "dob": "jckskd"
-    },
-    {
-      "id": "8649",
-      "name": "ywdaj",
-      "dob": "2004-01-01"
-    },
-    {
-      "id": "d298",
-      "name": "gdyihak",
-      "dob": "2000-01-01",
+      "name": "warsedtrgth",
+      "dob": "2000-11-11",
       "password": "dugai@3Y",
       "mobile": "9876543212",
-      "email": "dyiK2dgah@jhsd"
+      "email": "dyiK2dgah@jhsd",
+      "id": "d298"
     },
     {
       "id": "ad50",
@@ -30,6 +15,22 @@
       "password": "ASdfgh@1234",
       "mobile": "9876542123",
       "email": "diesau@yduhas"
+    },
+    {
+      "id": "7cd1",
+      "name": "Ramprasad",
+      "dob": "2000-92-92",
+      "password": "Waeqe@12",
+      "mobile": "9876543212",
+      "email": "ram@dau"
+    },
+    {
+      "name": "gdyihak",
+      "dob": "2000-01-99",
+      "password": "gshsR@45",
+      "mobile": "9876543213",
+      "email": "dyiK2dgah@jhsd",
+      "id": "2471"
     }
   ]
 }

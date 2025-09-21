@@ -1,4 +1,4 @@
-<p>add-students works!</p>
+<p>update-students works!</p>
 
 <form [formGroup]="formG"  (ngSubmit)="addInfo()">
    <div>
@@ -19,16 +19,16 @@
    </div>
    
 <div *ngIf="formG.get('password')?.invalid && (formG.get('password')?.touched || formG.get('password')?.dirty)">
-<small *ngIf="formG.get('password')?.hasError?.('required')" style="color:red;">
+<small *ngIf="formG.get('password')?.errors?.['required']" style="color:red;">
   Password is required
 </small>
-<!-- <small *ngIf="formG.get('password')?.errors?.['minlength']" style="color:red;">
+<small *ngIf="formG.get('password')?.errors?.['minlength']" style="color:red;">
   At least {{ formG.get('password')?.errors?.['minlength']?.requiredLength }} characters
 </small>
 <small *ngIf="formG.get('password')?.errors?.['maxlength']" style="color:red;">
   Max {{ formG.get('password')?.errors?.['maxlength']?.requiredLength }} characters
-</small> -->
-<small *ngIf="!formG.get('password')?.errors?.['required'] && formG.get('password')?.hasError?.('weakPassword')" style="color:red;">
+</small>
+<small *ngIf="formG.get('password')?.errors?.['pattern']" style="color:red;">
   Must include uppercase, lowercase, number, and special character
 </small>
 </div>
@@ -78,7 +78,7 @@
         <small *ngIf="formG.get('dob')?.hasError('required')" style="color: red;">dob is required</small>
 
         
-<small *ngIf=" formG.get('dob')?.hasError('pattern')" style="color: red;">
+<small *ngIf="!formG.get('dob')?.hasError('required') && formG.get('dob')?.hasError('retVal')" style="color: red;">
   Enter YYYY-mm-dd format
 </small>
 

@@ -9,6 +9,7 @@
         <th>Mobile</th>
         <th>Email</th>
         <th>Date of Birth</th>
+        <th colspan="2">Acttion</th>
     </tr>
     <tr *ngFor="let s of finaldata$ | async ">
         <td >{{s.id}}</td>
@@ -17,5 +18,8 @@
         <td>{{s.mobile}}</td>
         <td>{{s.email}}</td>
         <td>{{s.dob}}</td>
+        <td><button routerLink="/view/{{s.id}}">VIEW</button></td>
+        <td><button (click)="deletebyId(s.id)">Delete</button></td>
+        <td><button routerLink="/update/{{s.id}}">Update </button></td>
     </tr>
 </table>
